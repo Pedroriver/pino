@@ -1,0 +1,145 @@
+@font-face {
+  font-family: 'mountains_of_christmasregular';
+  src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/35984/mountainsofchristmas-webfont.woff2') format('woff2'),
+       url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/35984/mountainsofchristmas-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  background-color: #151522;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+body, html {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+svg.mainSVG {
+  width: 90%;
+  height: 90%;
+  visibility: hidden;
+}
+
+#endMessage {
+  font-family: mountains_of_christmasregular, Georgia, serif;
+  font-size: 2rem;
+  text-anchor: middle;
+  text-align: center;
+  fill: #FFFFFF;
+  color: #FFFFFF;
+  opacity: 0;
+  letter-spacing: 1px;
+}
+
+#endMessage .endMessage {
+  display: block;
+  width: 100%;
+  text-align: center;
+  color: #FEE8C7;
+}
+
+a {
+  color: white;
+  text-decoration: underline dotted #FFFFFF;
+}
+a:visited { color: red; }
+
+/* ===== GALERÍA DE FOTOS ===== */
+#galeria {
+  position: fixed; inset: 0; z-index: 10;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 1.2rem; padding: 1rem;
+  background: rgba(8, 16, 41, .94);
+  font-family: Georgia, "Times New Roman", serif;
+  color: #FEE8C7;
+  opacity: 0; visibility: hidden;
+  transition: opacity 1.6s ease, visibility 0s 1.6s;
+}
+#galeria.visible {
+  opacity: 1; visibility: visible;
+  transition: opacity 1.6s ease;
+}
+
+#marco {
+  position: relative;
+  width: min(88vw, 640px);
+  height: min(66vh, 560px);
+  background: #FEE8C7;
+  padding: 14px 14px 56px;
+  border-radius: 3px;
+  box-shadow: 0 18px 50px #000a;
+  transform: rotate(-1.2deg);
+}
+#lienzo {
+  position: relative; width: 100%; height: 100%;
+  background: #081029; overflow: hidden;
+}
+.foto {
+  position: absolute; inset: 0;
+  opacity: 0; transition: opacity 1.2s ease;
+}
+.foto.activa { opacity: 1; }
+.foto img {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+}
+.foto .vacia {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; padding: 1.5rem;
+  color: #FEE8C7aa; line-height: 1.5;
+  font-size: .95rem;
+}
+#pie {
+  position: absolute; left: 14px; right: 14px; bottom: 14px;
+  height: 42px; display: flex; align-items: center; justify-content: center;
+  color: #2b2b2b; font-size: 1.05rem; font-style: italic;
+}
+
+#controles { display: flex; align-items: center; gap: 1rem; }
+#controles button {
+  background: none; border: 1px solid #FEE8C755; color: #FEE8C7;
+  width: 2.6rem; height: 2.6rem; border-radius: 50%;
+  font-size: 1.2rem; cursor: pointer;
+}
+#controles button:hover,
+#controles button:focus-visible {
+  border-color: #cb9866; color: #cb9866; outline: none;
+}
+#puntos {
+  display: flex; gap: .45rem; flex-wrap: wrap;
+  justify-content: center; max-width: 60vw;
+}
+#puntos i {
+  width: .55rem; height: .55rem; border-radius: 50%;
+  background: #FEE8C740; transition: background .3s;
+}
+#puntos i.on { background: #cb9866; }
+
+#verFotos {
+  position: fixed; right: 1rem; bottom: 1rem; z-index: 9;
+  background: rgba(8, 16, 41, .6);
+  border: 1px solid #FEE8C755; color: #FEE8C7;
+  padding: .5rem 1.1rem; border-radius: 999px;
+  font: inherit; font-family: Georgia, serif;
+  cursor: pointer;
+}
+#verFotos:hover,
+#verFotos:focus-visible {
+  border-color: #cb9866; color: #cb9866; outline: none;
+}
+#verFotos.oculto { display: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  #galeria, .foto { transition-duration: .01s; }
+}

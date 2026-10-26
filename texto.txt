@@ -1,0 +1,16 @@
+arbol-navidad-fotos/
+├── index.html
+├── style.css
+├── script.js
+├── libs/
+│   ├── gsap.min.js
+│   ├── MorphSVGPlugin3.min.js
+│   ├── DrawSVGPlugin3.min.js
+│   ├── MotionPathPlugin.min.js
+│   ├── Physics2DPlugin3.min.js
+│   └── EasePack3.min.js
+└── fotos/
+    ├── foto1.jpg
+    ├── foto2.jpg
+    ├── foto3.jpg
+    └── foto4.jpg
